@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+<table class="table table-bordered text-center">
+    <tr>
+        <td >id</td>
+        <td>name</td>
+        <td>tel</td>
+        <td>grade</td>
+        <td>date</td>
+        <td>操作</td>
+    </tr>
+
+        <tr>
+            <form action="edituser" method="post" class="editUserForm">
+                <td><%= data.id %></td>
+                <td><%= data[i].name %> <input type="text" name="name" style="display: none"></td>
+                <td><%= data[i].tel %> <input type="text" name="tel" style="display: none"></td>
+                <td><%= data[i].grade %> <input type="text" name="grade" style="display: none"></td>
+                <td><%= data[i].date %> <input type="text" name="date" style="display: none"></td>
+                <td>
+                    <button type="submit" >编辑</button>
+            </form>
+            <form action="/deleteuser" method="post">
+                <input  type="text" name="id" value="<%= data[i].id %>" style="display: none">
+
+                <button type="submit">删除</button>
+            </form></td>
+        </tr>
+
+</table>
+
+</body>
+</html>

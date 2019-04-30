@@ -1,0 +1,72 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+  <title><%= title %></title>
+  <link rel='stylesheet' href='/stylesheets/style.css' />
+<!--  //引入bootstrap框架-->
+  <link href="https://cdn.bootcss.com/twitter-bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+<h1>学生简易管理系统</h1>
+<table class="table table-bordered text-center" id="table">
+  <tr>
+    <td >id</td>
+    <td>name</td>
+    <td>tel</td>
+    <td>grade</td>
+    <td>date</td>
+    <td>操作</td>
+  </tr>
+  <% for(var i=0;i<data.length;i++){ %>
+    <tr>
+      <form action="/editusertemp" method="post" >
+      <td><%= data[i].id %></td>
+      <td><%= data[i].name %> </td>
+      <td><%= data[i].phone %> </td>
+      <td><%= data[i].grade %> </td>
+      <td><%= data[i].date %> </td>
+      <td>
+        <button><a href="#bianji" class="btn btn-default">编辑</a></button>
+      </form>
+        <form action="/deleteuser" method="post">
+          <input  type="text" name="id" value="<%= data[i].id %>" style="display: none">
+
+          <button type="submit" ><a class="btn btn-default">删除</a></button>
+        </form></td>
+    </tr>
+  <% } %>
+</table>
+<h2>增加数据在下面表格填写</h2>
+<form action="/adduser" method="post">
+  name：<input type="text"  name="name" >
+  电话：<input type="text"  name="tel" >
+  年级：<input type="text"  name="grade">
+  修改时间：<input type="datetime-local"  name="date" >
+  <button type="submit">增加数据</button>
+
+
+</form>
+<h2 id="bianji" >编辑数据在下面表格填写</h2>
+<form action="/edituser" method="post">
+  id ：<input type="text"  name="id">
+  姓名：<input type="text"  name="name">
+  电话：<input type="text"  name="tel" >
+  年级：<input type="text"  name="grade">
+  时间：<input type="datetime-local"  name="date">
+
+  <input type="submit"  >
+
+
+
+</form>
+
+
+
+
+
+
+
+
+</body>
+</html>
